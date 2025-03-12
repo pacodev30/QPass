@@ -13,10 +13,30 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private:
+    /**
+     * @brief initialize
+     */
     void initialize();
+
+    /**
+     * @brief manageAction
+     */
     void manageAction();
+
+    /**
+     * @brief manageMenu
+     */
     void manageMenu();
+
+    /**
+     * @brief manageLayout
+     */
     void manageLayout();
+
+    /**
+     * @brief manageConnect
+     */
     void manageConnect();
 
 private slots:
@@ -25,10 +45,10 @@ private slots:
 
 private:
     QMdiArea        *_centralArea = nullptr;
-    QMdiSubWindow   *_sub1 = nullptr;
+    QMdiSubWindow   *_passList = nullptr;
     QMenu           *_fileMenu = nullptr;
     QAction         *_newAction = nullptr;
     QAction         *_openAction = nullptr;
-    QAction         *_quitAction = nullptr;
-    QWidget         *_widget1 = nullptr;
+    QAction         *_exitAction = nullptr;
+    QWidget         *_entries = nullptr;
 };

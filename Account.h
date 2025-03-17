@@ -1,10 +1,10 @@
 #pragma once
-
+#include <Includes.h>
 #include <QString>
 #include <QJsonObject>
 
 
-struct Entry
+struct Account
 {
     QString _service;
     QString _username;
@@ -21,6 +21,6 @@ struct Entry
      * @param jObject
      * @return
      */
-    static Entry fromJson(const QJsonObject &jObject);
+    static Account fromJson(const QJsonObject &jObject);
 
 };

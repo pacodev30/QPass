@@ -1,20 +1,20 @@
-#include "Entry.h"
+#include "Account.h"
 
-QJsonObject Entry::toJson() const
+QJsonObject Account::toJson() const
 {
     QJsonObject jObject;
-    jObject["Service"] = _service;
-    jObject["Username"] = _username;
-    jObject["Password"] = _password;
+    jObject[SERVICE] = _service;
+    jObject[USERNAME] = _username;
+    jObject[PASSWORD] = _password;
     return jObject;
 }
 
-Entry Entry::fromJson(const QJsonObject &jObject)
+Account Account::fromJson(const QJsonObject &jObject)
 {
     return
     {
-        jObject["Service"].toString(),
-        jObject["Username"].toString(),
-        jObject["Service"].toString()
+        jObject[SERVICE].toString(),
+        jObject[USERNAME].toString(),
+        jObject[PASSWORD].toString()
     };
 }

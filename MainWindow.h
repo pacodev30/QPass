@@ -1,5 +1,5 @@
 #pragma once
-
+#include <PasswordManager.h>
 #include <QtWidgets/QMainWindow>
 #include <QMdiArea>
 #include <qapplication.h>
@@ -40,15 +40,18 @@ private:
     void manageConnect();
 
 private slots:
-    void onNewAction_triggered();
+    void onNewEntryAction_triggered();
+    void onRemoveAction_triggered();
     void onOpenAction_triggered();
 
 private:
     QMdiArea        *_centralArea = nullptr;
     QMdiSubWindow   *_passList = nullptr;
     QMenu           *_fileMenu = nullptr;
-    QAction         *_newAction = nullptr;
+    QAction         *_newEntryAction = nullptr;
     QAction         *_openAction = nullptr;
+    QAction         *_removeAction = nullptr;
     QAction         *_exitAction = nullptr;
     QWidget         *_entries = nullptr;
+    QString         _filepath;
 };

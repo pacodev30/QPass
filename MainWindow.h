@@ -40,8 +40,19 @@ private:
     void manageConnect();
 
 private slots:
+    /**
+     * @brief onNewEntryAction_triggered
+     */
     void onNewEntryAction_triggered();
+
+    /**
+     * @brief onRemoveAction_triggered
+     */
     void onRemoveAction_triggered();
+
+    /**
+     * @brief onOpenAction_triggered
+     */
     void onOpenAction_triggered();
 
 private:
@@ -53,5 +64,5 @@ private:
     QAction         *_removeAction = nullptr;
     QAction         *_exitAction = nullptr;
     QWidget         *_entries = nullptr;
-    QString         _filepath;
+    PasswordManager _accountManager = PasswordManager("data.json");
 };

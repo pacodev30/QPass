@@ -1,15 +1,52 @@
 #pragma once
 #include <Account.h>
-#include <QWidget>
 #include <QJsonArray>
 
-class PasswordManager : public QWidget
+class PasswordManager
 {
-    Q_OBJECT
 public:
-    explicit PasswordManager(QWidget *parent = nullptr);
+    explicit PasswordManager(const QString &filePath);
 
-    static bool addAccount(const QString &filepath, const Account &account);
-    static Account getAccount(const QString &filepath, const QString &service);
-    static bool removeAccount(const QString &filePath, const QString &service);
+    /**
+     * @brief loadFromJson
+     * @return
+     */
+    bool loadFromJson();
+
+    /**
+     * @brief saveToJson
+     * @return
+     */
+    bool saveToJson();
+
+    /**
+     * @brief addAccount
+     * @param newAccount
+     * @return
+     */
+    bool addAccount(const Account &newAccount);
+
+    /**
+     * @brief removeAccount
+     * @param service
+     * @return
+     */
+    bool removeAccount(const QString &service);
+
+    /**
+     * @brief getAccount
+     * @param service
+     * @return
+     */
+    Account getAccount(const QString &service) const;
+
+    /**
+     * @brief getAllAccounts
+     * @return
+     */
+    QList<Account> getAllAccounts() const;
+
+private:
+    QString _filePath;
+    QList<Account> _accounts;
 };
